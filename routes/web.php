@@ -16,3 +16,21 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('/employees', [App\Http\Controllers\AngajatiController::class, 'show'])->name('employees');
+    Route::get('/show-form', [App\Http\Controllers\AngajatiController::class, 'show_form'])->name('show-form');
+    Route::post('/show-form', [App\Http\Controllers\AngajatiController::class, 'add_employee'])->name('add-employee');
+    Route::delete('/delete-employee', [App\Http\Controllers\AngajatiController::class, 'delete_employee'])->name('delete-employee');
+});
+    
+
