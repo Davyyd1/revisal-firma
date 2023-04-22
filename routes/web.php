@@ -30,7 +30,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/employees', [App\Http\Controllers\AngajatiController::class, 'show'])->name('employees');
     Route::get('/show-form', [App\Http\Controllers\AngajatiController::class, 'show_form'])->name('show-form');
     Route::post('/show-form', [App\Http\Controllers\AngajatiController::class, 'add_employee'])->name('add-employee');
-    Route::delete('/delete-employee', [App\Http\Controllers\AngajatiController::class, 'delete_employee'])->name('delete-employee');
+    Route::post('/delete-employee', [App\Http\Controllers\AngajatiController::class, 'delete_employee'])->name('delete-employee');
 });
     
 

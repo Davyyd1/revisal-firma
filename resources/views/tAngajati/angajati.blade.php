@@ -21,7 +21,6 @@
                                     <th>Actiune</th>
                                 </tr>
                             </thead>
-                            <form method="POST" action="{{ route('delete-employee') }}" id="call-back-form" name="call-back-form"></form>
                             <tbody>
                                 @foreach($angajati as $angajat)
                                 <tr>
@@ -37,6 +36,7 @@
                                 </tr>
                                 @endforeach
                             </tbody>
+                            <div id="errors"></div>
                         </table>
                     </div>
                     <div class="card-footer"></div>
@@ -62,18 +62,24 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 beforeSend: function(){
-                    if(confirm()) {} return false;
+                    if(confirm("Esti sigur ca vrei sa stergi angajatul?")) {} else {return false};
                 },
                 success: function(data) {
                     if (data.status == 0) {
                         $("#errors").html(data.mesaj);
                         $("#errors").fadeTo(2000, 500).slideUp(500);
                         $("#errors").slideUp(500);
+                        setTimeout(() => {
+                        location.reload();
+                        }, 3000);
                     }
                     if (data.status == 1) {
                         $("#errors").html(data.mesaj);
                         $("#errors").fadeTo(2000, 500).slideUp(500);
                         $("#errors").slideUp(500);
+                        setTimeout(() => {
+                        location.reload();
+                        }, 3000);
                     }
                 }
             })

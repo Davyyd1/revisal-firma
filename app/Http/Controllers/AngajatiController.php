@@ -50,7 +50,26 @@ class AngajatiController extends Controller
         }
     }
         
+    public function delete_employee(Request $request){
+        $employee = Employees::where('id', $request->id)->where('numar_marca', $request->marca)->first();
+        // dd($employee);
+        if($employee){
+            $employee->delete();
+            if(true){
+            return response([
+                'status'=>1,
+                'mesaj'=>'<div class="alert alert-success" role="alert">
+                Angajatul a fost sters cu succes!</div>' 
+            ]);
+            }
+        }
+    }
     
+    public function see_employee(){
+        
+    }
+
+
     private function validate_input()
     {
         return [
