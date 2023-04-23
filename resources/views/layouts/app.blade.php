@@ -63,7 +63,7 @@
                     <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Tables</h6>
-                            <a class="collapse-item" href="{{ route('employees') }}">Tabele angajati</a>
+                            <a class="collapse-item" href="{{ route('employees') }}">Tabel angajati</a>
                             <a class="collapse-item" href="{{ route('show-form') }}">Adauga angajati</a>
                         </div>
                     </div>

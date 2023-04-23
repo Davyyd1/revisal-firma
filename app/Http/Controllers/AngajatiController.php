@@ -6,7 +6,7 @@ use App\Employees;
 // use Dotenv\Validator;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
-
+use Str;
 class AngajatiController extends Controller
 {
     public function show() {
@@ -19,7 +19,7 @@ class AngajatiController extends Controller
     }
 
     public function add_employee(Request $request){
-        $check_name=Employees::where('nume',$request->nume)->first();
+        $check_name=Employees::where('numar_marca',$request->numar_marca)->first();
         if(!$check_name)
         {   
             $validator=Validator::make($request->input(),$this->validate_input());
@@ -41,6 +41,7 @@ class AngajatiController extends Controller
             $employee->numar_ci = $request->numar_ci;
             $employee->cnp = $request->cnp;
             $employee->adresa = $request->adresa;
+            $employee->slug = Str::slug($request->nume.'-'.$request->prenume);
             $employee->save();
             return response([
                 'status'=>1,
@@ -52,7 +53,6 @@ class AngajatiController extends Controller
         
     public function delete_employee(Request $request){
         $employee = Employees::where('id', $request->id)->where('numar_marca', $request->marca)->first();
-        // dd($employee);
         if($employee){
             $employee->delete();
             if(true){
@@ -65,8 +65,10 @@ class AngajatiController extends Controller
         }
     }
     
-    public function see_employee(){
-        
+    public function see_employee(Request $request){
+        $angajat=Employees::where('slug',$request->slug)->first();
+        // dd($angajat->slug);
+        return view('tAngajati.vezi-angajat', compact('angajat'));
     }
 
 
