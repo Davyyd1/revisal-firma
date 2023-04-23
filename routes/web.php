@@ -33,6 +33,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::post('/delete-employee', [App\Http\Controllers\AngajatiController::class, 'delete_employee'])->name('delete-employee');
     Route::get('/{slug}', [App\Http\Controllers\AngajatiController::class, 'see_employee'])->name('see-employee');
     Route::put('/{slug}', [App\Http\Controllers\AngajatiController::class, 'update_employee'])->name('update-employee');
+    Route::post('/search-employee', [App\Http\Controllers\SearchController::class, 'search_employee'])->name('search-employee');
 });
     
 
