@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header" style="background-color:gray; color:white;">Angajat</span></div>
-
+vezi angajat 2
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
