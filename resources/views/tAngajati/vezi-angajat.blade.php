@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header" style="background-color:gray; color:white;">Angajat, <span style="color:white;">{{ $angajat->nume }} {{ $angajat->prenume }}</span></div>
+                <div class="card-header" style="background-color:gray; color:white;">Angajat</span></div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -125,7 +125,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="button" class="btn btn-primary" onclick="update_employee()">
                                     Actualizeaza date
                                 </button>
                             </div>
@@ -142,7 +142,7 @@
         var data = $("#call-back-form").serialize();
         $.ajax({
             url: "/update-employee",
-            method: "post",
+            method: "put",
             data: data,
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

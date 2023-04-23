@@ -67,10 +67,13 @@ class AngajatiController extends Controller
     
     public function see_employee(Request $request){
         $angajat=Employees::where('slug',$request->slug)->first();
-        // dd($angajat->slug);
         return view('tAngajati.vezi-angajat', compact('angajat'));
     }
 
+    public function update_employee(Request $request){
+        $angajat=Employees::where('slug',$request->slug)->first();
+        dd($angajat);
+    }
 
     private function validate_input()
     {
