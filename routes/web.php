@@ -35,5 +35,6 @@ Route::group(['middleware' => 'auth'], function(){
     Route::put('/{slug}', [App\Http\Controllers\AngajatiController::class, 'update_employee'])->name('update-employee');
     Route::post('/search-employee', [App\Http\Controllers\SearchController::class, 'search_employee'])->name('search-employee');
 });
-    
+
+Route::get('/generate-pdf', [App\Http\Controllers\GeneratePDF::class, 'show_pdf'])->name('generate-pdf');
 
