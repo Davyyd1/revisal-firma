@@ -7,6 +7,8 @@ use App\Employees;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Str;
+use Route;
+
 class AngajatiController extends Controller
 {
     public function show() {
@@ -71,14 +73,33 @@ class AngajatiController extends Controller
     }
 
     public function update_employee(Request $request){
-        $angajat=Employees::where('slug',$request->slug)->first();
-        dd($angajat);
+        $angajat=Employees::where('slug',$request->slug)
+        ->first();
+        
+        $validator=Validator::make($request->input(),$this->validate_input());
+            if ($validator->fails()) {
+                return response([
+                    'status'=>0,
+                    'mesaj'=>'<div class="alert alert-danger" role="alert">
+                    '.$validator->errors()->first().'
+                  </div>' 
+                ]);
+            } elseif(!$validator->fails()){
+            $angajat->update(
+                $request->input()
+            );
+            return response([
+                'status'=>1,
+                'mesaj'=>'<div class="alert alert-success" role="alert">
+                Angajatul a fost actualizat cu succes!</div>' 
+            ]);
+            }
     }
 
     private function validate_input()
     {
         return [
-            'numar_marca'=>"required",
+            // 'numar_marca'=>"required",
             'nume'=>'required',
             'prenume'=>'required',
             'functie' => 'required',

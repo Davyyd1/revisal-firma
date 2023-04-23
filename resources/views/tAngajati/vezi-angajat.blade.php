@@ -5,31 +5,25 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header" style="background-color:gray; color:white;">Angajat</span></div>
-vezi angajat 2
+                <div class="card-header" style="background-color:gray; color:white;">Angajat {{ $angajat->nume }} {{ $angajat->prenume }}</div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+                    <div class="row mb-3">
+                        <label for="numar_marca" class="col-md-4 col-form-label text-md-end">{{ __('Numar marca') }}</label>
 
-                        <div class="row mb-3">
-                            <label for="numar_marca" class="col-md-4 col-form-label text-md-end">{{ __('Numar marca') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="numar_marca" type="text" class="form-control @error('numar_marca') is-invalid @enderror" name="numar_marca" value="{{ $angajat->numar_marca }}" required autocomplete="numar_marca" autofocus>
-
-                                @error('numar_marca')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                        <div class="col-md-6">
+                            {{ $angajat->numar_marca }}
                         </div>
+                    </div>
 
+                    <form method="POST" id="call-back-form" name="call-back-form">
+                        @csrf
+                        <input type="hidden" value="{{ $angajat->slug }}" name="slug">
+                        
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Nume') }}</label>
+                            <label for="nume" class="col-md-4 col-form-label text-md-end">{{ __('Nume') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $angajat->nume }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="nume" value="{{ $angajat->nume }}" required autocomplete="nume" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -122,6 +116,7 @@ vezi angajat 2
                                 @enderror
                             </div>
                         </div>
+                        <div id="errors"></div>
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
@@ -143,7 +138,7 @@ vezi angajat 2
         $.ajax({
             url: "/update-employee",
             method: "put",
-            data: data,
+            data:data,
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
@@ -154,7 +149,7 @@ vezi angajat 2
                     $("#errors").slideUp(500);
                     setTimeout(() => {
                     location.reload();
-                    }, 3000);
+                    }, 2800);
                 }
                 if (data.status == 1) {
                     $("#errors").html(data.mesaj);
@@ -162,7 +157,7 @@ vezi angajat 2
                     $("#errors").slideUp(500);
                     setTimeout(() => {
                     location.reload();
-                    }, 3000);
+                    }, 2800);
                 }
             }
         })

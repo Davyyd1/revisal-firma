@@ -29,7 +29,7 @@
                                     <td>{{ $angajat->prenume }}</td>
                                     <td>{{ $angajat->functie }}</td>
                                     <td>
-                                        <button class="btn btn-sm btn-success"><a href="/{{ $angajat->slug }}" style="text-decoration:none;color:white;">Vezi</a></button>
+                                        <a href="/{{ $angajat->slug }}" style="text-decoration:none;color:white;"><button class="btn btn-sm btn-success">Vezi</button></a>
                                         <button class="btn btn-sm btn-danger" data-id="{{ $angajat->id }}" data-marca="{{ $angajat->numar_marca }}" onclick="delete_employee(this)">Sterge</button>
                                     </td>
                                     {{-- <td><a href="#" class="btn btn-sm btn-primary">{{ $angajat->cnp }}</a></td> --}}
