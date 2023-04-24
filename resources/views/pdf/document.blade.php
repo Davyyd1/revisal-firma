@@ -60,24 +60,12 @@
 </head>
 
 <body>
-    {{-- <header><img width="95%"  style="opacity:0.5" src="https://i.imgur.com/T9kTjog.png"/></header>
-    <footer style="font-size:8.5;opacity:0.5">TELEKOM ROMANIA MOBILE COMMUNICATIONS S.A.
-        <br>
-        Splaiul Independentei nr. 319G, subsolul 1, Sector 6, 060044, Bucuresti, Romania
-        <br>
-        Telefon: 1933 | Internet: <a href="https://www.telekom.ro">www.telekom.ro </a> | E-mail: <a href="mailto:clientiB2B@telekom.ro">clientiB2B@telekom.ro</a>
-        <br>
-        Nr. Inreg. Reg. Com.: J40/433/1999 | CUI:11952970 | CIF:RO11952970
-        <br>
-        Capital social subscris de 2.571.234.275 lei, din care capital social varsat 771.373.805 lei si 377.360.883,51 Euro
-    </footer>
-    <p  ><b>Telekom Romania Mobile Communications S.A. (“Telekom”)</b> <br> --}}
     <header>
         <img width="37%" style="opacity:0.5" src="https://i.imgur.com/sWrWzGU.png" height="93" />
     </header>
 
     <body>
-        <p style="margin-left: 12rem; margin-top:3rem;"><b>Proces verbal de predare-primire cartele SIM</b><br></p> 
+        <p style="margin-left: 12rem; margin-top:3rem;"><b>{{ $employee->nume }}</b><br></p> 
         <p><span style="font-size:13.5px; margin-left:2rem; margin-right:2rem;">la Contractul de abonament pentru serviciile prestate profesionistilor de catre Telekom nr. ................. din data  de </span><span style="margin-left:18rem;">........................</span></p>
 
         <p style="font-size:13.5px; margin-top:2rem;">Incheiat intre:</p>

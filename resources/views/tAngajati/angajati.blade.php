@@ -7,8 +7,6 @@
             <div class="col-lg-12 mb-4">
                 <!-- Simple Tables -->
                 <div class="card">
-                    
-
                     <div class="search">
                         <div class="container-fluid">
                             <form action="{{ route('search-employee') }}" method="POST">
@@ -66,7 +64,6 @@
                                         <button class="btn btn-sm btn-danger" data-id="{{ $angajat->id }}" data-marca="{{ $angajat->numar_marca }}" onclick="delete_employee(this)">Sterge</button>
                                         <a href="generate/{{ $angajat->slug }}"><button class="btn btn-sm btn-info">Genereaza C.O.</button></a>
                                     </td>
-                                    {{-- <td><a href="#" class="btn btn-sm btn-primary">{{ $angajat->cnp }}</a></td> --}}
                                 </tr>
                                 @endforeach
                                 

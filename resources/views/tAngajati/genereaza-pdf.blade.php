@@ -82,7 +82,7 @@
                         <div id="errors"></div>
 
                         <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-12">
                                 <button type="button" class="btn btn-primary" onclick="save_co()">
                                     Salveaza cererea de concediu
                                 </button>
