@@ -86,7 +86,7 @@
                                 <button type="button" class="btn btn-primary" onclick="save_co()">
                                     Salveaza cererea de concediu
                                 </button>
-                                <a href="/pdf/{{ $angajat->id }}"><button type="button" class="btn btn-success">
+                                <a href="/pdf/generate"><button type="button" class="btn btn-success">
                                     Genereaza pdf
                                 </button></a>
                             </div>

@@ -39,21 +39,21 @@ class GeneratePDF extends Controller
         ]);
     }
 
-    public function generate_pdf($id){
-        $employee_co=EmployeesCO::where('employee_id',$id)
-        ->leftjoin('employees','employees_co.employee_id','employees.id')
-        ->select('data_cerere as data_cerere')
+    public function generate_pdf(){
+        $employee_co=EmployeesCO::leftjoin('employees','employees_co.employee_id','employees.id')
+        ->select('data_cerere as data_cerere', 'dataco_inceput as data_inceput', 'dataco_sfarsit as data_sfarsit', "nume as nume", "prenume as prenume", "functie as functie", "serie_ci as serie_ci", "numar_ci as numar_ci", "cnp as cnp", "adresa as adresa")
+        ->orderBy('employees_co.id','DESC')
         ->first();
-        dd($employee_co);
+        // dd($employee_co);
         $data=[
             'employee_co' => $employee_co
         ];
             $pdf = PDF::loadView('pdf.document', $data);
             $output = $pdf->output();
-            //file_put_contents("file.pdf", $output);       
-            // return Response::make($output, 200, [
-            //     'Content-Type' => 'application/pdf',
-            //     'Content-Disposition' => 'inline; filename="pdf.document"'
-            // ]);
+            file_put_contents("pdf.document", $output);       
+            return Response::make($output, 200, [
+                'Content-Type' => 'application/pdf',
+                'Content-Disposition' => 'inline; filename="pdf.document"'
+            ]);
     }
 }
