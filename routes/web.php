@@ -34,7 +34,9 @@ Route::group(['middleware' => 'auth'], function(){
     Route::post('/show-form', [App\Http\Controllers\AngajatiController::class, 'add_employee'])->name('add-employee');
     Route::post('/delete-employee', [App\Http\Controllers\AngajatiController::class, 'delete_employee'])->name('delete-employee');
     Route::post('/search-employee', [App\Http\Controllers\SearchController::class, 'search_employee'])->name('search-employee');
-    Route::get('/generate/{slug}', [App\Http\Controllers\GeneratePDF::class, 'show_pdf'])->name('generate-pdf');
+    Route::get('/generate/{slug}', [App\Http\Controllers\GeneratePDF::class, 'show'])->name('generate-pdf');
+    Route::patch('/generate/save', [App\Http\Controllers\GeneratePDF::class, 'save_co'])->name('save');
+    Route::get('/pdf', [App\Http\Controllers\GeneratePDF::class, 'generate_pdf'])->name('pdf');
 });
 
 
