@@ -28,13 +28,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/employees', [App\Http\Controllers\AngajatiController::class, 'show'])->name('employees');
+    Route::get('/employee/{slug}', [App\Http\Controllers\AngajatiController::class, 'see_employee']);
+    Route::put('/employee/update', [App\Http\Controllers\AngajatiController::class, 'update_employee'])->name('update-employee');
     Route::get('/show-form', [App\Http\Controllers\AngajatiController::class, 'show_form'])->name('show-form');
     Route::post('/show-form', [App\Http\Controllers\AngajatiController::class, 'add_employee'])->name('add-employee');
     Route::post('/delete-employee', [App\Http\Controllers\AngajatiController::class, 'delete_employee'])->name('delete-employee');
-    Route::get('/{slug}', [App\Http\Controllers\AngajatiController::class, 'see_employee'])->name('see-employee');
-    Route::put('/{slug}', [App\Http\Controllers\AngajatiController::class, 'update_employee'])->name('update-employee');
     Route::post('/search-employee', [App\Http\Controllers\SearchController::class, 'search_employee'])->name('search-employee');
+    Route::get('/generate/{slug}', [App\Http\Controllers\GeneratePDF::class, 'show_pdf'])->name('generate-pdf');
 });
 
-Route::get('/generate-pdf', [App\Http\Controllers\GeneratePDF::class, 'show_pdf'])->name('generate-pdf');
 

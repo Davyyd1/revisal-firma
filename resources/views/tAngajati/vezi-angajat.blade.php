@@ -136,7 +136,7 @@
     function update_employee() {
         var data = $("#call-back-form").serialize();
         $.ajax({
-            url: "/update-employee",
+            url: "/employee/update",
             method: "put",
             data:data,
             headers: {

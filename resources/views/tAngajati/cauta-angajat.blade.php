@@ -63,9 +63,9 @@
                                     <td>{{ $angajat->prenume }}</td>
                                     <td>{{ $angajat->functie }}</td>
                                     <td>
-                                        <a href="/{{ $angajat->slug }}" style="text-decoration:none;color:white;"><button class="btn btn-sm btn-success">Vezi</button></a>
+                                        <a href="employees/{{ $angajat->slug }}" style="text-decoration:none;color:white;"><button class="btn btn-sm btn-success">Vezi</button></a>
                                         <button class="btn btn-sm btn-danger" data-id="{{ $angajat->id }}" data-marca="{{ $angajat->numar_marca }}" onclick="delete_employee(this)">Sterge</button>
-                                        <a href="{{ route('generate-pdf') }}"><button class="btn btn-sm btn-info">Genereaza C.O.</button></a>
+                                        <a href="generate/{{ $angajat->slug }}"><button class="btn btn-sm btn-info">Genereaza C.O.</button></a>
                                     </td>
                                     {{-- <td><a href="#" class="btn btn-sm btn-primary">{{ $angajat->cnp }}</a></td> --}}
                                 </tr>

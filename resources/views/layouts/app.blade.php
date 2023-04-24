@@ -17,6 +17,8 @@
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="../css/ruang-admin.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <!-- Scripts -->
     {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
 </head>
@@ -29,7 +31,7 @@
             <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
                 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                     <div class="sidebar-brand-icon">
-                        <img src="img/logo/logo2.png">
+                        <img src="../img/logo/logo2.png">
                     </div>
                     <div class="sidebar-brand-text mx-3" style="font-size:12px;">Revisal Groupe Tib</div>
                 </a>
@@ -85,7 +87,7 @@
                             <div class="topbar-divider d-none d-sm-block"></div>
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <img class="img-profile rounded-circle" src="img/boy.png" style="max-width: 60px">
+                                    <img class="img-profile rounded-circle" src="../img/boy.png" style="max-width: 60px">
                                     <span class="ml-2 d-none d-lg-inline text-white small">
                                         @if (Auth::check())
                                             {{ Auth::user()->name }}
@@ -127,7 +129,7 @@
 
                 </div>
                 <!-- Footer -->
-                <footer class="sticky-footer bg-white">
+                <footer class="sticky-footer bg-white mt-4">
                     <div class="container my-auto py-2">
                         <div class="copyright text-center my-auto">
                             <span>copyright &copy;
@@ -148,11 +150,21 @@
         </a>
     </body>
 
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="js/ruang-admin.min.js"></script>
-    <script src="vendor/chart.js/Chart.min.js"></script>
-    <script src="js/demo/chart-area-demo.js"></script>
+    <script>
+        flatpickr("#datetimepicker2", {
+            enableTime: true,
+            dateFormat: "Y-m-d H:i",
+        });
+        flatpickr("#datetimepicker3", {
+            enableTime: false,
+            dateFormat: "Y-m-d",
+        });
+    </script>
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../js/ruang-admin.min.js"></script>
+    <script src="../vendor/chart.js/Chart.min.js"></script>
+    <script src="../js/demo/chart-area-demo.js"></script>
 
 </html>
