@@ -36,7 +36,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::post('/search-employee', [App\Http\Controllers\SearchController::class, 'search_employee'])->name('search-employee');
     Route::get('/generate/{slug}', [App\Http\Controllers\GeneratePDF::class, 'show'])->name('generate-pdf');
     Route::patch('/generate/save', [App\Http\Controllers\GeneratePDF::class, 'save_co'])->name('save');
-    Route::get('/pdf', [App\Http\Controllers\GeneratePDF::class, 'generate_pdf'])->name('pdf');
+    Route::get('/pdf/{slug}', [App\Http\Controllers\GeneratePDF::class, 'generate_pdf'])->name('pdf');
 });
 
 

@@ -65,7 +65,7 @@
     </header>
 
     <body>
-        <p style="margin-left: 12rem; margin-top:3rem;"><b>{{ $employee->nume }}</b><br></p> 
+        <p style="margin-left: 12rem; margin-top:3rem;"><b>{{ $employee_co->nume }}</b><br></p> 
         <p><span style="font-size:13.5px; margin-left:2rem; margin-right:2rem;">la Contractul de abonament pentru serviciile prestate profesionistilor de catre Telekom nr. ................. din data  de </span><span style="margin-left:18rem;">........................</span></p>
 
         <p style="font-size:13.5px; margin-top:2rem;">Incheiat intre:</p>

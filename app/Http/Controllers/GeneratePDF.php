@@ -39,10 +39,13 @@ class GeneratePDF extends Controller
         ]);
     }
 
-    public function generate_pdf($employee){
-        $employee_co=EmployeesCO::where('id',$employee->employee_id);
+    public function generate_pdf($id){
+        $employee_co=EmployeesCO::where('employee_id',$id)
+        ->leftjoin('employees','employees_co.employee_id','employees.id')
+        ->select('data_cerere as data_cerere')
+        ->first();
+        dd($employee_co);
         $data=[
-            'employee' => $employee,
             'employee_co' => $employee_co
         ];
             $pdf = PDF::loadView('pdf.document', $data);
