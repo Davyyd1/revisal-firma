@@ -156,7 +156,7 @@
                     $("#errors").fadeTo(2000, 500).slideUp(500);
                     $("#errors").slideUp(500);
                     setTimeout(() => {
-                    location.reload();
+                        window.location.href = 'http://127.0.0.1:8000/employees'
                     }, 2800);
                 }
             }

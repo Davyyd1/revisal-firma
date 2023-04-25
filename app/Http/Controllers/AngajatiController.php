@@ -77,6 +77,7 @@ class AngajatiController extends Controller
         ->first();
         
         $validator=Validator::make($request->input(),$this->validate_input());
+        // dd(Str::slug($request->nume.'-'.$request->prenume));
             if ($validator->fails()) {
                 return response([
                     'status'=>0,
@@ -93,7 +94,6 @@ class AngajatiController extends Controller
                 'numar_ci' => $request->numar_ci,
                 'cnp' => $request->cnp,
                 'adresa' => $request->adresa,
-                // $request->input(),
                 'slug' => Str::slug($request->nume.'-'.$request->prenume)
             ]);
             return response([
