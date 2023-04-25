@@ -85,9 +85,17 @@ class AngajatiController extends Controller
                   </div>' 
                 ]);
             } elseif(!$validator->fails()){
-            $angajat->update(
-                $request->input()
-            );
+            $angajat->update([
+                'nume' => $request->nume,
+                'prenume' => $request->prenume,
+                'functie' => $request->functie,
+                'serie_ci' => $request->serie_ci,
+                'numar_ci' => $request->numar_ci,
+                'cnp' => $request->cnp,
+                'adresa' => $request->adresa,
+                // $request->input(),
+                'slug' => Str::slug($request->nume.'-'.$request->prenume)
+            ]);
             return response([
                 'status'=>1,
                 'mesaj'=>'<div class="alert alert-success" role="alert">
