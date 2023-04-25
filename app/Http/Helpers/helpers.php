@@ -12,3 +12,14 @@ if(!function_exists('get_employee_details_co')){
         return $employee;
     }   
 }
+
+if(!function_exists('autocomplete')){
+    function autocomplete($employee){
+        if($employee){
+            return $employee;
+        } elseif(!$employee) {
+            return "..............................";
+        }
+    }   
+}
+

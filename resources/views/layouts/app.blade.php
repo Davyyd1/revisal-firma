@@ -152,8 +152,8 @@
 
     <script>
         flatpickr("#datetimepicker2", {
-            enableTime: true,
-            dateFormat: "Y-m-d H:i",
+            enableTime: false,
+            dateFormat: "Y-m-d",
         });
         flatpickr("#datetimepicker3", {
             enableTime: false,

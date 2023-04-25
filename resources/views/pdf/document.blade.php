@@ -47,11 +47,14 @@
         }
 
         .td, .th {
-        border: 1px solid black;
+        border: .5px solid black;
         text-align: left;
         padding: 8px;
+        font-size: 14.5px;
         }
-
+        .td{
+            font-size: 12px;
+        }
         .tabel-predare-primire{
             width: 100%;
         }
@@ -61,91 +64,57 @@
 
 <body>
     <header>
-        <img width="37%" style="opacity:0.5" src="https://i.imgur.com/sWrWzGU.png" height="93" />
+        <img width="37%" style="opacity:0.5" src="" height="93"/>img sigla firma
     </header>
 
     <body>
-        <p style="margin-left: 12rem; margin-top:3rem;"><b>{{ $employee_co->nume }} {{ $employee_co->data_cerere }} {{ $employee_co->data_inceput }} {{ $employee->data_sfarsit }}</b><br></p> 
-        <p><span style="font-size:13.5px; margin-left:2rem; margin-right:2rem;">la Contractul de abonament pentru serviciile prestate profesionistilor de catre Telekom nr. ................. din data  de </span><span style="margin-left:18rem;">........................</span></p>
+        <p style="margin-left: 12rem; margin-top:3rem;"><b></b><br></p> 
+        <p style="font-weight:bold; float:right">Nr{{ autocomplete($employee_co->nr) }}/{{ autocomplete($employee_co->nrinreg) }}</p><br>
 
-        <p style="font-size:13.5px; margin-top:2rem;">Incheiat intre:</p>
+        <p style="font-size:14.5px; margin-top:3rem; font-weight:bold;">Doamna/Domnule Director,</p>
 
-        <p style="font-size:13.5px;">.................................., cu sediul in ......................, Str. ............ nr ......., .............. ..... ........., Romania, inregistrata la Registrul Comertului sub nr. J..../...../....., CUI ........................, Cod de Inregistrare Fiscala RO................., capital social de ............................ lei, Cod IBAN ............................... deschis la ......................, legal reprezentat prin ......................... in calitate de Agent de Vanzari ..................................., Cod de vanzare ..............................., denumita in continuare <b>„Agent Telekom”</b></p>
+        <p style="font-size:14.5px;">Subsemnatul/a <b>{{ autocomplete($employee_co->nume) }}  {{ autocomplete($employee_co->prenume) }}</b>, angajat/a in cadrul <b>{{ autocomplete($employee_co->companie) }}</b>, in functia de <b>{{ autocomplete($employee_co->functie) }}</b>, avand contract individual de munca pe perioada determinata/nedeterminata, va rog sa imi aprobati <b>{{ autocomplete($employee_co->nr_zile) }} zile</b> / <b>{{ autocomplete($employee_co->nr_zile * 8) }} ore</b> pentru: </p>
 
-        <p style="font-size:13.5px;">si</p>
-
-        <p style="font-size:13.5px;">.................................., cu sediul in ......................, Str. ............ nr ......., .............. ..... ........., Romania, inregistrata la Registrul Comertului sub nr. J..../...../....., CUI ........................, Cod de Inregistrare Fiscala RO................., capital social de ............................ lei, Cod IBAN ............................... deschis la ......................, legal reprezentat prin ......................... in calitate de ................................,  adresa e-mail: ..................................., nr. telefon contact: .................................., denumita in continuare <b>„Client”</b>.</p>
-       
-        <p style="font-size:13.5px;">Agentul Telekom declara ca a inmanat reprezentantului Clientului mentionat mai sus, iar Clientul declara ca a primit de la reprezentantul AgentuluiTelekom mentionat mai sus, cartelele SIM avand seriile mentionate in tabelul de mai jos:</p>
-
-        <table style="border:1px solid black; margin-top:1.3rem; margin-bottom:1.3rem;" class="tabel-first">
-            <tr >
-                <th class="th"> </th>
-                <th class="th"> </th>
-                <th class="th"> </th>
-              </tr>
-              <tr>
-                <td class="td"> </td>
-                <td class="td"></td>
-                <td class="td"></td>
-              </tr>
-              <tr>
-                <td class="td"></td>
-                <td class="td"></td>
-                <td class="td"></td>
-              </tr>
-              <tr>
-                <td class="td"></td>
-                <td class="td"></td>
-                <td class="td"></td>
-              </tr>
-              <tr>
-                <td class="td"></td>
-                <td class="td"></td>
-                <td class="td"></td>
-              </tr>
-        </table>
-
-        <p style="font-size:13.5px;">Clientul declara ca a primit cartelel SIM mentionate mai sus in stare buna, nu prezinta deformari, loviri sau alte vicii aparente si este de acord cu receptia lor fara obiectiuni. In cazul in care Clientul are obiectiuni, le va mentiona in continuare: .....................................................................................................................................................................................
-        .....................................................................................................................................................................................
+        <p style="font-size:14.5px;">
+        <b><input type="radio" style="margin-bottom:-4.5px;">Invoire cu recuperare</b><br>
+        <b><input type="radio" style="margin-bottom:-4.5px;" checked>Concediu de odihna</b><br>
+        <b><input type="radio" style="margin-bottom:-4.5px;">Concediu eveniment special * (certificatul de casatorie/deces)</b><br>
+        <b><input type="radio" style="margin-bottom:-4.5px;">Maternitate / paternitate * (certificat nastere/curs de puericultura)</b><br>
+        <b><input type="radio" style="margin-bottom:-4.5px;">Concediu fara plata</b>
         </p>
 
-        <p style="font-size:13.5px;">Persoana semnatara din partea Clientului declara ca are puterea de a reprezenta Clientul la semnarea acestui proces-verbal de predare-primire, de a receptiona cartelele SIM de la Agentul Telekom si de a angaja Clientul ca urmare a semnarii acestui proces-verbal de predare-primire.</p>
+        <p style="font-size:14.5px;">Incepand cu ora/data de <b>{{ autocomplete($employee_co->data_inceput) }}</b> pana la ora/data de <b>{{ autocomplete($employee_co->data_sfarsit) }}</b>.</p>
+        <p style="font-size:14.5px;">Persoana care va prelua atributiile in perioada invoirii/concediului( doar pentru functiile cadru ): <b>{{ autocomplete($employee_co->preluare_atributii) }}</b></p><br>
+       
+        <p style="font-size:14.5px; margin-left:30rem;">
+        Data solicitare cerere: <b>{{ autocomplete($employee_co->data_cerere) }}</b>
+        Semnatura salariat:
+        </p>
 
-        <p style="font-size:13.5px;">Incheiat in 2 (doua) exemplare, cate unul pentru fiecare parte.</p>
-
-        <table style="font-size:13.5px;" class="tabel-predare-primire">
-            <p style="font-size:13.5px;"><b>DATA (zz/ll/aaaa): ………………………………..</b></p>
+        <table style="border:1px solid black; margin-top:1.3rem; " class="tabel-first">
             <tr>
-                <th style="width:65%; font-size:13.5px; text-align:left;">
-                    AM PREDAT:
-                </th>
-                <th style="width:35%; text-align:left;">
-                    AM PRIMIT:
-                </th>
+                <th class="th">Viza SEF/RESPONSABIL IERARHIC </th>
+                <th class="th">Viza RESURSE UMANE </th>
+              </tr>
+              <tr>
+                <td class="td">NUME SI PRENUME: </td>
+                <td class="td">Numar zile concediu de odihna/ore de recuperare {{ autocomplete($employee_co->nrzile) }}</td>
+              </tr>
+              <tr>
+                <td class="td">SEMNATURA:</td>
+                <td class="td">SEMNATURA:</td>
             </tr>
-            <tr>
-                <td><b>Agent Telekom: ______________________</b></td>
-                <td><b>Client: _______________________</b></td>
-            </tr>
-            <tr>
-                <td><b>Prin: ___________________</b></td>
-                <td><b>Prin: ________________________</b></td>
-            </tr>
-            <tr>
-                <td><b>Semnatura si stampila:	</b></td>
-                <td><b>Semnatura si stampila:	</b></td>
-            </tr>
+            
         </table>
-        
+        <p style="font-size:12px">*se va anexa la intoarcerea din concediu</p>
+        <p style="text-align:right; font-weight:bold; text-decoration:underline; margin-bottom:8.85rem;">APROBAT ADMINISTRATOR,</p>
+
+        <b style="font-size:14.5px;"><span style="text-decoration:underline; font-weight:bold;">NOTA</span>: Cererile de concediu se acorda perioadelor anuale stabilite de catre angajator, respectand termenul intre 25 iulie - 25 august si respectiv, 20 decembrie - 15 ianuarie.</b><br><br>
+        <b style="font-size:14.5px;"><span style="text-decoration: underline;">ATENTIE!</span> Dupa validare, un exemplar semmnat va fi inmanat salariatului.</b>
+
+        <p style="font-size:13px;">Cod Unic de Inregistrare: RO 12345678<br> <span>N* Registrul Comertului: J11/2034/2005 - Cu capital de 410 000 lei</span></p>
+
     </body>
-
-    <footer style="font-size:8.5;opacity:0.5">TELEKOM ROMANIA MOBILE COMMUNICATIONS S.A.
-        <br>
-        B-dul Expozitiei nr. 1C, Cladirea B1, Etajele 1, 2 si 3, sector 1, cod postal 012101, Bucuresti, Romania | Telefon: 1933 | www.mobile.telekom.ro | Nr. Inreg. Reg. Com.: J40/433/1999 | CUI: 11952970 | CIF: RO11952970 | Capital social subscris si varsat 409.059.998,27 lei 
-    </footer>
-
-
 </body>
 
 </html>

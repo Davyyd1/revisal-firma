@@ -8,12 +8,13 @@ use Illuminate\Http\Request;
 use Dompdf\Dompdf;
 use PDF;
 use Response;
+use DB;
 
 class GeneratePDF extends Controller
 {
     public function show(Request $request){
         $angajat=Employees::where('slug',$request->slug)->first();
-        
+        // $angajat_co = EmployeesCO::leftjoin('employees','employees_co.employee_id','employees.id')->where('slug','anghelescu-stoian')->first();
         return view('tAngajati.genereaza-pdf', compact('angajat'));
     }
 
@@ -21,6 +22,8 @@ class GeneratePDF extends Controller
         $angajat=Employees::where('slug',$request->slug)->first();
         $dateCO = new EmployeesCO();
         $dateCO->employee_id = $angajat->id;
+        $dateCO->companie = $request->companie;
+        $dateCO->nr_zile = $request->nr_zile;
         $dateCO->data_cerere = $request->data_cerere;
         $dateCO->dataco_inceput = $request->dataco_inceput;
         $dateCO->dataco_sfarsit = $request->dataco_sfarsit;
@@ -41,10 +44,10 @@ class GeneratePDF extends Controller
 
     public function generate_pdf(){
         $employee_co=EmployeesCO::leftjoin('employees','employees_co.employee_id','employees.id')
-        ->select('data_cerere as data_cerere', 'dataco_inceput as data_inceput', 'dataco_sfarsit as data_sfarsit', "nume as nume", "prenume as prenume", "functie as functie", "serie_ci as serie_ci", "numar_ci as numar_ci", "cnp as cnp", "adresa as adresa")
+        ->select('companie as companie','nr_zile as nr_zile','data_cerere as data_cerere', 'dataco_inceput as data_inceput', 'dataco_sfarsit as data_sfarsit', "nume as nume", "prenume as prenume", "functie as functie", "serie_ci as serie_ci", "numar_ci as numar_ci", "cnp as cnp", "adresa as adresa")
         ->orderBy('employees_co.id','DESC')
         ->first();
-        // dd($employee_co);
+        
         $data=[
             'employee_co' => $employee_co
         ];
