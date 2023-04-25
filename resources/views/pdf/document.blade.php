@@ -73,7 +73,7 @@
 
         <p style="font-size:14.5px; margin-top:3rem; font-weight:bold;">Doamna/Domnule Director,</p>
 
-        <p style="font-size:14.5px;">Subsemnatul/a <b>{{ autocomplete($employee_co->nume) }}  {{ autocomplete($employee_co->prenume) }}</b>, angajat/a in cadrul <b>{{ autocomplete($employee_co->companie) }}</b>, in functia de <b>{{ autocomplete($employee_co->functie) }}</b>, avand contract individual de munca pe perioada determinata/nedeterminata, va rog sa imi aprobati <b>{{ autocomplete($employee_co->nr_zile) }} zile</b> / <b>{{ autocomplete($employee_co->nr_zile * 8) }} ore</b> pentru: </p>
+        <p style="font-size:14.5px;">Subsemnatul/a <b>{{ autocomplete($employee_co->nume) }}  {{ autocomplete($employee_co->prenume) }}</b>, angajat/a in cadrul <b>{{ autocomplete($employee_co->companie) }}</b>, in functia de <b>{{ autocomplete($employee_co->functie) }}</b>, avand contract individual de munca pe perioada determinata/nedeterminata, va rog sa imi aprobati <b>{{ autocomplete($employee_co->nr_zile) }} zile / ore</b> pentru: </p>
 
         <p style="font-size:14.5px;">
         <b><input type="radio" style="margin-bottom:-4.5px;">Invoire cu recuperare</b><br>
@@ -98,7 +98,7 @@
               </tr>
               <tr>
                 <td class="td">NUME SI PRENUME: </td>
-                <td class="td">Numar zile concediu de odihna/ore de recuperare {{ autocomplete($employee_co->nrzile) }}</td>
+                <td class="td">Numar zile concediu de odihna/ore de recuperare: <b>{{ autocomplete($employee_co->nr_zile) }}</b></td>
               </tr>
               <tr>
                 <td class="td">SEMNATURA:</td>
