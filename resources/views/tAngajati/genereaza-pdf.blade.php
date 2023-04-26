@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header" style="background-color:gray; color:white;">Angajat {{ $angajat->nume }} {{ $angajat->prenume }}</div>
+                <div class="card-header" style="background-color:gray; color:white;">Angajat {{ $angajat->nume }} {{ $angajat->prenume }} @if($angajat->este_tesa), TESA @endif</div>
                 <div class="card-body">
                     <form method="POST" id="call-back-form" name="call-back-form">
                         @csrf
@@ -71,6 +71,7 @@
                             </div>
                         </div>
 
+                        @if($angajat->este_tesa == 1)
                         <div class="row mb-3">
                             <label for="preluare_atributii" class="col-md-4 col-form-label text-md-end" style="font-size:15px;">{{ __('Angajat preluare atributii') }}</label>
 
@@ -88,7 +89,8 @@
                                 @enderror
                             </div>
                         </div>
-
+                        @endif
+                
                         <div class="row mb-3">
                             <label for="nr_zile" class="col-md-4 col-form-label text-md-end">{{ __('Numar zile concediu') }}</label>
 

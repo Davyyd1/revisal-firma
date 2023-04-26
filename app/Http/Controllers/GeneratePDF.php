@@ -61,7 +61,7 @@ class GeneratePDF extends Controller
         ->select('nume as nume_persoana_preluare_atributii','prenume as prenume_persoana_preluare_atributii')
         ->orderBy('employees_co.id','DESC')
         ->first();
-        // dd($employee_co_responsabil);
+        
         $data=[
             'employee_co' => $employee_co,
             'employee_co_responsabil' => $employee_co_responsabil,

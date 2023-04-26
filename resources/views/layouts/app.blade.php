@@ -30,7 +30,7 @@
         <div id="wrapper">
             <!-- Sidebar -->
             <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
-                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../">
                     <div class="sidebar-brand-icon">
                         <img src="../img/logo/logo2.png">
                     </div>
@@ -105,8 +105,10 @@
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                         @csrf
-                                        <a class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                            Deconectare</a>
+                                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                            Deconectare
+                                        </a>
                                     </form>
                                     @else
                                     <a class="dropdown-item" href="{{ route('login') }}">
