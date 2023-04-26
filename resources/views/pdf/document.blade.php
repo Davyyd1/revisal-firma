@@ -71,7 +71,6 @@
     </header>
 
     <body>
-        <p style="margin-left: 12rem; margin-top:3rem;"><b></b><br></p>
         <p style="font-weight:bold; float:right">Nr{{ autocomplete($employee_co->nr) }}/{{ autocomplete($employee_co->nrinreg) }}</p><br>
 
         <p style="font-size:14.5px; margin-top:3rem; font-weight:bold;">Doamna/Domnule Director,</p>
@@ -120,7 +119,7 @@
 
         </table>
         <p style="font-size:12px">*se va anexa la intoarcerea din concediu</p>
-        <p style="text-align:right; font-weight:bold; text-decoration:underline; margin-bottom:8.85rem;">APROBAT ADMINISTRATOR,</p>
+        <p style="text-align:right; font-weight:bold; text-decoration:underline; margin-bottom:12rem;">APROBAT ADMINISTRATOR,</p>
 
         <b style="font-size:14.5px;"><span style="text-decoration:underline; font-weight:bold;">NOTA</span>: Cererile de concediu se acorda perioadelor anuale stabilite de catre angajator, respectand
             termenul intre 25 iulie - 25 august si respectiv, 20 decembrie - 15 ianuarie.</b><br><br>

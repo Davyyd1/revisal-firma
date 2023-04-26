@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header" style="background-color:gray; color:white;">Angajat {{ $angajat->nume }} {{ $angajat->prenume }} @if($angajat->este_tesa), TESA @endif</div>
+                <div class="card-header" style="background-color:gray; color:white;">Cerere pentru angajatul {{ $angajat->nume }} {{ $angajat->prenume }} @if($angajat->este_tesa), TESA @endif</div>
                 <div class="card-body">
                     <form method="POST" id="call-back-form" name="call-back-form">
                         @csrf
@@ -58,6 +58,7 @@
 
                             <div class="col-md-6">
                                 <select name="responsabil_ierarhic" id="responsabil_ierarhic" class="form-control @error('responsabil_ierarhic') is-invalid @enderror">
+                                    <option value=""></option>
                                     @foreach($angajat_tesa as $tesa)
                                     <option value="{{ $tesa->id }}">{{ $tesa->nume }} {{ $tesa->prenume }}</option>
                                     @endforeach
@@ -77,6 +78,7 @@
 
                             <div class="col-md-6">
                                 <select name="preluare_atributii" id="preluare_atributii" class="form-control @error('preluare_atributii') is-invalid @enderror">
+                                    <option value=""></option>
                                     @foreach($angajat_tesa_preluareatrb as $ang_tesa)
                                     <option value="{{ $ang_tesa->id }}">{{ $ang_tesa->nume }} {{ $ang_tesa->prenume }}</option>
                                     @endforeach

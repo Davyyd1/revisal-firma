@@ -19,7 +19,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="este_tesa" class="col-md-4 col-form-label text-md-end">{{ __('Este tesa') }}</label>
+                            <label for="este_tesa" class="col-md-4 col-form-label text-md-end">{{ __('Tesa') }}</label>
 
                             <div class="col-md-6">
                                 <input type="radio" id="este_tesa" name="este_tesa" value="1">Da &nbsp;
@@ -28,7 +28,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="are_drepturi" class="col-md-4 col-form-label text-md-end">{{ __('Are drepturi') }}</label>
+                            <label for="are_drepturi" class="col-md-4 col-form-label text-md-end">{{ __('Poate aviza cereri') }}</label>
 
                             <div class="col-md-6">
                                 <input type="radio" id="are_drepturi" name="are_drepturi" value="1">Da &nbsp;
