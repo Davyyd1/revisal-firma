@@ -35,6 +35,8 @@ class AngajatiController extends Controller
              }
 
             $employee=new Employees();
+            $employee->este_tesa = $request->este_tesa;
+            $employee->are_drepturi = $request->are_drepturi;
             $employee->numar_marca = $request->numar_marca;
             $employee->nume = $request->nume;
             $employee->prenume=$request->prenume;
@@ -87,6 +89,8 @@ class AngajatiController extends Controller
                 ]);
             } elseif(!$validator->fails()){
             $angajat->update([
+                'este_tesa' => $request->este_tesa,
+                'are_drepturi' => $request->are_drepturi,
                 'nume' => $request->nume,
                 'prenume' => $request->prenume,
                 'functie' => $request->functie,

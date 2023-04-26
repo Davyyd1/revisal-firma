@@ -54,6 +54,42 @@
                         </div>
 
                         <div class="row mb-3">
+                            <label for="responsabil_ierarhic" class="col-md-4 col-form-label text-md-end" style="font-size:15px;">{{ __('SEF/RESPONSABIL IERARHIC') }}</label>
+
+                            <div class="col-md-6">
+                                <select name="responsabil_ierarhic" id="responsabil_ierarhic" class="form-control @error('responsabil_ierarhic') is-invalid @enderror">
+                                    @foreach($angajat_tesa as $tesa)
+                                    <option value="{{ $tesa->id }}">{{ $tesa->nume }} {{ $tesa->prenume }}</option>
+                                    @endforeach
+                                </select>
+
+                                @error('responsabil_ierarhic')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="preluare_atributii" class="col-md-4 col-form-label text-md-end" style="font-size:15px;">{{ __('Angajat preluare atributii') }}</label>
+
+                            <div class="col-md-6">
+                                <select name="preluare_atributii" id="preluare_atributii" class="form-control @error('preluare_atributii') is-invalid @enderror">
+                                    @foreach($angajat_tesa_preluareatrb as $ang_tesa)
+                                    <option value="{{ $ang_tesa->id }}">{{ $ang_tesa->nume }} {{ $ang_tesa->prenume }}</option>
+                                    @endforeach
+                                </select>
+
+                                @error('preluare_atributii')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
                             <label for="nr_zile" class="col-md-4 col-form-label text-md-end">{{ __('Numar zile concediu') }}</label>
 
                             <div class="col-md-6">

@@ -82,14 +82,14 @@
 
         <p style="font-size:14.5px;">
             <b><input type="radio" style="margin-bottom:-4.5px;">Invoire cu recuperare</b><br>
-            <b><input type="radio" style="margin-bottom:-4.5px;" checked>Concediu de odihna</b><br>
+            <b><input type="radio" style="margin-bottom:-4.5px;">Concediu de odihna</b><br>
             <b><input type="radio" style="margin-bottom:-4.5px;">Concediu eveniment special * (certificatul de casatorie/deces)</b><br>
             <b><input type="radio" style="margin-bottom:-4.5px;">Maternitate / paternitate * (certificat nastere/curs de puericultura)</b><br>
             <b><input type="radio" style="margin-bottom:-4.5px;">Concediu fara plata</b>
         </p>
 
         <p style="font-size:14.5px;">Incepand cu ora/data de <b>{{ autocomplete($employee_co->data_inceput) }}</b> pana la ora/data de <b>{{ autocomplete($employee_co->data_sfarsit) }}</b>.</p>
-        <p style="font-size:14.5px;">Persoana care va prelua atributiile in perioada invoirii/concediului( doar pentru functiile cadru ): <b>{{ autocomplete($employee_co->preluare_atributii) }}</b>
+        <p style="font-size:14.5px;">Persoana care va prelua atributiile in perioada invoirii/concediului( doar pentru functiile cadru ): <b>{{ autocomplete($employee_preluareatrb->nume_persoana_preluare_atributii) }} {{ autocomplete($employee_preluareatrb->prenume_persoana_preluare_atributii) }}</b>
         </p><br>
 
         @if ($employee_co->data_cerere)
@@ -110,7 +110,7 @@
                 <th class="th">Viza RESURSE UMANE </th>
             </tr>
             <tr>
-                <td class="td">NUME SI PRENUME: </td>
+                <td class="td">NUME SI PRENUME: <b>{{ autocomplete($employee_co_responsabil->nume_responsabil) }} {{ autocomplete($employee_co_responsabil->prenume_responsabil) }}</b> </td>
                 <td class="td">Numar zile concediu de odihna/ore de recuperare: <b>{{ autocomplete($employee_co->nr_zile) }}</b></td>
             </tr>
             <tr>

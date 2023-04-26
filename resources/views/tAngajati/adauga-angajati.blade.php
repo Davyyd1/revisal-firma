@@ -19,6 +19,24 @@
                         </div>
 
                         <div class="row mb-3">
+                            <label for="este_tesa" class="col-md-4 col-form-label text-md-end">{{ __('Este tesa') }}</label>
+
+                            <div class="col-md-6">
+                                <input type="radio" id="este_tesa" name="este_tesa" value="1">Da &nbsp;
+                                <input type="radio" id="este_tesa" name="este_tesa" value="0">Nu
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="are_drepturi" class="col-md-4 col-form-label text-md-end">{{ __('Are drepturi') }}</label>
+
+                            <div class="col-md-6">
+                                <input type="radio" id="are_drepturi" name="are_drepturi" value="1">Da &nbsp;
+                                <input type="radio" id="are_drepturi" name="are_drepturi" value="0">Nu
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
                             <label for="nume" class="col-md-4 col-form-label text-md-end">{{ __('Nume') }}</label>
 
                             <div class="col-md-6">
@@ -108,6 +126,9 @@
                     $("#errors").html(data.mesaj);
                     $("#errors").fadeTo(2000, 500).slideUp(500);
                     $("#errors").slideUp(500);
+                    setTimeout(() => {
+                        window.location.href = 'http://127.0.0.1:8000/show-form';
+                    }, 2700);
                 }
             }
         })
