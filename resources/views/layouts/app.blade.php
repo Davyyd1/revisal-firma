@@ -59,6 +59,7 @@
                         </div>
                     </div>
                 </li>
+                
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true" aria-controls="collapseTable">
                         <i class="fas fa-fw fa-table"></i>
@@ -66,9 +67,24 @@
                     </a>
                     <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Tables</h6>
+                            {{-- <h6 class="collapse-header">Tables</h6> --}}
                             <a class="collapse-item" href="{{ route('employees') }}">Tabel angajati</a>
+                            <a class="collapse-item" href="{{ route('employees') }}">Tabel companii</a>
+                            
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable1" aria-expanded="true" aria-controls="collapseTable1">
+                        <i class="fas fa-fw fa-table"></i>
+                        <span>Adauga</span>
+                    </a>
+                    <div id="collapseTable1" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            {{-- <h6 class="collapse-header">Tables</h6> --}}
                             <a class="collapse-item" href="{{ route('show-form') }}">Adauga angajati</a>
+                            <a class="collapse-item" href="{{ route('show-form-company') }}">Adauga companie</a>
                         </div>
                     </div>
                 </li>
