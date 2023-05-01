@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Company;
 use App\Employees;
 // use Dotenv\Validator;
 use Illuminate\Support\Facades\Validator;
@@ -17,7 +18,8 @@ class AngajatiController extends Controller
     }
 
     public function show_form(){
-        return view('tAngajati.adauga-angajati');
+        $companies = Company::orderBy('created_at', 'ASC')->get();
+        return view('tAngajati.adauga-angajati', compact('companies'));
     }
 
     public function add_employee(Request $request){
@@ -35,6 +37,7 @@ class AngajatiController extends Controller
              }
 
             $employee=new Employees();
+            $employee->company_id = $request->company_id;
             $employee->este_tesa = $request->este_tesa;
             $employee->are_drepturi = $request->are_drepturi;
             $employee->numar_marca = $request->numar_marca;

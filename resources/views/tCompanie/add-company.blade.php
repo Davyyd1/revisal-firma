@@ -53,8 +53,8 @@
                     $("#errors").fadeTo(2000, 500).slideUp(500);
                     $("#errors").slideUp(500);
                     setTimeout(() => {
-                        window.location.href = 'http://127.0.0.1:8000/';
-                    }, 2700);
+                        window.location.href = 'http://127.0.0.1:8000/add/company';
+                    }, 2500);
                 }
             }
         })

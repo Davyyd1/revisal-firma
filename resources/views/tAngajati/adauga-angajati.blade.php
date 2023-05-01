@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header" style="background-color:gray; color:white; ">Adauga angajat</div>
+                <div class="card-header" style="background-color:gray; color:white;">Adauga angajat</div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('show-form') }}" id="call-back-form" name="call-back-form">
                         @csrf
@@ -15,6 +15,19 @@
 
                             <div class="col-md-6">
                                 <input id="numar_marca" type="text" class="form-control" name="numar_marca" value="{{ old('numar_marca') }}" required autocomplete="numar_marca" autofocus>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="company_id" class="col-md-4 col-form-label text-md-end">{{ __('Companie') }}</label>
+
+                            <div class="col-md-6">
+                                <select name="company_id" id="company_id" class="form-control @error('company_id') is-invalid @enderror">
+                                    <option value=""></option>
+                                    @foreach($companies as $company)
+                                    <option value="{{ $company->id }}">{{ $company->nume }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
 
