@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Company;
 use Illuminate\Http\Request;
+use PDO;
 use Validator;
 
 class CompanyController extends Controller
@@ -39,8 +40,47 @@ class CompanyController extends Controller
             return response([
                 'status'=>1,
                 'mesaj'=>'<div class="alert alert-success" role="alert">
-                Compania a fost adaugata cu succes!</div>' 
+                Angajatul a fost adaugata cu succes!</div>' 
             ]);
+        }
+    }
+
+    public function update_company(Request $request){
+        $company=Company::where('nume',$request->company_name)->first();
+        
+        $validator=Validator::make($request->input(),$this->validate_input_update());
+        // dd(Str::slug($request->nume.'-'.$request->prenume));
+            if ($validator->fails()) {
+                return response([
+                    'status'=>0,
+                    'mesaj'=>'<div class="alert alert-danger" role="alert">
+                    '.$validator->errors()->first().'
+                  </div>' 
+                ]);
+            } elseif(!$validator->fails()){
+            $company->update([
+                'nume' => $request->company_name,
+            ]);
+            return response([
+                'status'=>1,
+                'mesaj'=>'<div class="alert alert-success" role="alert">
+                Compania a fost actualizata cu succes!</div>' 
+            ]);
+            }
+    }
+
+    public function delete_company(Request $request) 
+    {
+        $company = Company::where('id', $request->id)->first();
+        if($company){
+            $company->delete();
+            if(true){
+            return response([
+                'status'=>1,
+                'mesaj'=>'<div class="alert alert-success" role="alert">
+                Compania a fost stearsa cu succes!</div>' 
+            ]);
+            }
         }
     }
 
@@ -48,6 +88,13 @@ class CompanyController extends Controller
         return
         [
             'nume_companie' => 'required'
+        ];
+    }
+
+    private function validate_input_update(){
+        return
+        [
+            'company_name' => 'required'
         ];
     }
 }
