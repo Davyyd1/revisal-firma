@@ -45,7 +45,7 @@
                                 <td>{{ $company->nume }}</td>
                                 <td>
                                     <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" >Vezi</button>
+                                    <a href="/show-company/{{ $company->slug }}"><button type="button" class="btn btn-primary">Vezi</button></a>
                                     <button class="btn btn-sm btn-danger" data-id="{{ $company->id }}" onclick="delete_company(this)" style="padding:.5rem;">Sterge</button>
                                 </td>
                             </tr>
@@ -62,31 +62,6 @@
     </div>
     <!--Row-->
 </div>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Actualizeaza nume companie</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <form method="PUT" id="call-back-form" name="call-back-form">
-            @csrf
-            <div class="modal-body" style="display:flex;">
-                <label for="company_name" class="form-label">Nume companie</label>
-                <input class="form-control" type="text" value="{{ $company->nume }}" name="company_name" id="company_name">
-            </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" onclick="update_company()">Actualizeaza</button>
-            </div>
-        </form>
-      </div>
-    </div>
-  </div>
 <!---Container Fluid-->
 
 <script>

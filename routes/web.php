@@ -46,7 +46,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/show-company', [App\Http\Controllers\CompanyController::class, 'show_company'])->name('show-company');
     Route::post('/add/company', [App\Http\Controllers\CompanyController::class, 'add_company'])->name('add-company');
     Route::post('/delete-company', [App\Http\Controllers\CompanyController::class, 'delete_company'])->name('delete-company');
-    Route::get('/show-company/{id}', [App\Http\Controllers\CompanyController::class, 'edit_company'])->name('edit-company');
+    Route::get('/show-company/{slug}', [App\Http\Controllers\CompanyController::class, 'edit_company'])->name('edit-company');
     Route::put('/update/company', [App\Http\Controllers\CompanyController::class, 'update_company'])->name('update-company');
 });
 
