@@ -12,7 +12,7 @@ class SearchController extends Controller
         ->where('prenume','LIKE', '%'.$request->prenume.'%')
         ->where('functie','LIKE', '%'.$request->functie.'%')
         ->where('company_id','LIKE', '%'.$request->companie.'%')
-        ->paginate(10);
+        ->get();
         return view('tAngajati.cauta-angajat',compact('search'));
     }
 }

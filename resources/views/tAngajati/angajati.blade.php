@@ -31,7 +31,7 @@
                                     <div class="col-lg-2">
                                         <div class="form-box mb-20">
                                             <select name="companie" id="companie" class="form-control @error('companie') is-invalid @enderror">
-                                                <option value=""></option>
+                                                <option value="">Companie*</option>
                                                 @foreach (get_company() as $company)
                                                     <option value="{{ $company->id }}">{{ $company->nume }}</option>
                                                 @endforeach
