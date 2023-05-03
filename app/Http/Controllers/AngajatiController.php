@@ -92,6 +92,7 @@ class AngajatiController extends Controller
                 ]);
             } elseif(!$validator->fails()){
             $angajat->update([
+                'company_id' => $request->company_id,
                 'este_tesa' => $request->este_tesa,
                 'are_drepturi' => $request->are_drepturi,
                 'nume' => $request->nume,

@@ -15,19 +15,30 @@
                                 @csrf
                                 <h3 style="margin-top:1rem;">Cauta angajat</h3>
                                 <div class="row">
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-2">
                                         <div class="form-box mb-20">
                                             <input type="text" name="nume" class="form-control" placeholder="Nume*">
                                         </div>
                                     </div>
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-2">
                                         <div class="form-box mb-20">
                                             <input type="text" name="prenume" class="form-control" placeholder="Prenume*">
                                         </div>
                                     </div>
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-2">
                                         <div class="form-box mb-20">
                                             <input type="text" name="functie" class="form-control" placeholder="Functie*">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-box mb-20">
+                                            <select name="companie" id="companie" class="form-control @error('companie') is-invalid @enderror">
+                                                <option value=""></option>
+                                                @foreach (get_company() as $company)
+                                                    <option value="{{ $company->id }}">{{ $company->nume }}</option>
+                                                @endforeach
+                                            </select>
+                                            {{-- <input type="text" name="companie" class="form-control" placeholder="Companie*"> --}}
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
@@ -52,6 +63,7 @@
                                     <th>Nume</th>
                                     <th>Prenume</th>
                                     <th>Functia</th>
+                                    <th>Companie</th>
                                     <th>Actiune</th>
                                 </tr>
                             </thead>
@@ -62,6 +74,7 @@
                                     <td>{{ $angajat->nume }}</td>
                                     <td>{{ $angajat->prenume }}</td>
                                     <td>{{ $angajat->functie }}</td>
+                                    <td>{{ get_company_name($angajat->id) }}</td>
                                     <td>
                                         <a href="employee/{{ $angajat->slug }}" style="text-decoration:none;color:white;"><button class="btn btn-sm btn-success">Vezi</button></a>
                                         <button class="btn btn-sm btn-danger" data-id="{{ $angajat->id }}" data-marca="{{ $angajat->numar_marca }}" onclick="delete_employee(this)">Sterge</button>

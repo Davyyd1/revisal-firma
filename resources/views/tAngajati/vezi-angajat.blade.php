@@ -19,6 +19,18 @@
                         @csrf
                         <input type="hidden" value="{{ $angajat->slug }}" name="slug">
                         
+                        <div class="row mb-3">
+                            <label for="company_id" class="col-md-4 col-form-label text-md-end">{{ __('Companie') }}</label>
+
+                            <div class="col-md-6">
+                                <select name="company_id" id="company_id" class="form-control @error('company_id') is-invalid @enderror">
+                                    <option value=""></option>
+                                    @foreach(get_company() as $company)
+                                    <option value="{{ $company->id }}" {{ $company->id == $angajat->company_id ? 'selected' : '' }} >{{ $company->nume }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
 
                         <div class="row mb-3">
                             <label for="este_tesa" class="col-md-4 col-form-label text-md-end">{{ __('Tesa') }}</label>
@@ -177,19 +189,19 @@
             success: function(data) {
                 if (data.status == 0) {
                     $("#errors").html(data.mesaj);
-                    $("#errors").fadeTo(2000, 500).slideUp(500);
+                    $("#errors").fadeTo(1500, 500).slideUp(500);
                     $("#errors").slideUp(500);
                     setTimeout(() => {
                     location.reload();
-                    }, 2800);
+                    }, 2500);
                 }
                 if (data.status == 1) {
                     $("#errors").html(data.mesaj);
-                    $("#errors").fadeTo(2000, 500).slideUp(500);
+                    $("#errors").fadeTo(1300, 500).slideUp(500);
                     $("#errors").slideUp(500);
                     setTimeout(() => {
                         window.location.href = 'http://127.0.0.1:8000/employees'
-                    }, 2800);
+                    }, 1800);
                 }
             }
         })
