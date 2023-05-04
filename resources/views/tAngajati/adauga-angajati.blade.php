@@ -90,7 +90,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="cnp" class="col-md-4 col-form-label text-md-end">{{ __('Cnp') }}</label>
+                            <label for="cnp" class="col-md-4 col-form-label text-md-end">{{ __('CNP') }}</label>
 
                             <div class="col-md-6">
                                 <input id="cnp" type="text" class="form-control" name="cnp" value="{{ old('cnp') }}" required autocomplete="cnp" autofocus>

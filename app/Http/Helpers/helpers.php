@@ -47,3 +47,14 @@ if(!function_exists('get_companies')){
     }   
 }
 
+
+if(!function_exists('count_all_employees')){
+    function count_all_employees(){
+        $employees = Employees::all();
+
+        // dd($employee);
+        if($employees)
+        return count($employees);
+    }   
+}
+

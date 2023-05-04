@@ -52,6 +52,7 @@
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h6 class="m-0 font-weight-bold text-primary">Tabel angajati Groupe TIB</h6>
                     </div>
+                    <h6 class="m-0 font-weight-bold ml-3 mb-2">Total angajati : {{ count_all_employees() }}</h6>
                     <div class="table-responsive">
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
