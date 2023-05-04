@@ -18,6 +18,22 @@
                             </div>
                         </div>
 
+                        <div class="row mb-3">
+                            <label for="ro_companie" class="col-md-4 col-form-label text-md-end">{{ __('RO companie') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="ro_companie" type="text" class="form-control" name="ro_companie" value="{{ old('ro_companie') }}" required autocomplete="ro_companie" autofocus>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="j_companie" class="col-md-4 col-form-label text-md-end">{{ __('J companie') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="j_companie" type="text" class="form-control" name="j_companie" value="{{ old('j_companie') }}" required autocomplete="j_companie" autofocus>
+                            </div>
+                        </div>
+
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button class="btn btn-primary" type="button" onclick="save_form()">Adauga companie</button>

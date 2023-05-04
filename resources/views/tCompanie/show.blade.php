@@ -36,6 +36,8 @@
                         <thead class="thead-light">
                             <tr>
                                 <th>Nume</th>
+                                <th>RO Companie</th>
+                                <th>J Companie</th>
                                 <th>Actiune</th>
                             </tr>
                         </thead>
@@ -43,6 +45,8 @@
                             @foreach($companies as $company)
                             <tr>
                                 <td>{{ $company->nume }}</td>
+                                <td>{{ $company->ro }}</td>
+                                <td>{{ $company->j }}</td>
                                 <td>
                                     <!-- Button trigger modal -->
                                     <a href="/show-company/{{ $company->slug }}"><button type="button" class="btn btn-primary">Vezi</button></a>

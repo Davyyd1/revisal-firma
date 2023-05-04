@@ -44,6 +44,8 @@ class CompanyController extends Controller
 
             $company=new Company();
             $company->nume = $request->nume_companie;
+            $company->ro = $request->ro_companie;
+            $company->j = $request->j_companie;
             $company->slug = Str::slug($request->nume_companie);
             $company->save();
             return response([
@@ -67,6 +69,8 @@ class CompanyController extends Controller
         } elseif(!$validator->fails()){
         $company->update([
             'nume' => $request->nume_companie,
+            'ro' => $request->ro_companie,
+            'j' => $request->j_companie,
             'slug' => Str::slug($request->nume_companie)
         ]);
         return response([

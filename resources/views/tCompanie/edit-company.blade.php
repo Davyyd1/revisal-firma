@@ -24,6 +24,33 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="row mb-3">
+                            <label for="ro_companie" class="col-md-4 col-form-label text-md-end">{{ __('RO Companie') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="ro_companie" type="text" class="form-control @error('ro_companie') is-invalid @enderror" name="ro_companie" value="{{ $company->ro }}" required autocomplete="ro_companie" autofocus>
+
+                                @error('ro_companie')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="j_companie" class="col-md-4 col-form-label text-md-end">{{ __('J companie') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="j_companie" type="text" class="form-control @error('j_companie') is-invalid @enderror" name="j_companie" value="{{ $company->j }}" required autocomplete="j_companie" autofocus>
+
+                                @error('j_companie')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
 
                         
                         <div id="errors"></div>
